@@ -1,5 +1,6 @@
 package SeatingSystem.data;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,11 +27,10 @@ public class SampleData {
 		
 		List<Reservation> reservations = new ArrayList<>();
 		
-		reservations.add(new Reservation("R1", "John", 2));
-		reservations.add(new Reservation("R2", "Tom", 4));
-		reservations.add(new Reservation("R3", "Doe", 2));
-		reservations.add(new Reservation("R4", "Smith", 5));
-		reservations.add(new Reservation("R5", "Jane", 3));
+		reservations.add(new Reservation("R1", "John", 2, LocalDateTime.of(2026, 6, 3, 18, 0)));
+		reservations.add(new Reservation("R2", "Jack", 2, LocalDateTime.of(2026, 6, 3, 18, 30)));
+		reservations.add(new Reservation("R3", "Hermy", 2, LocalDateTime.of(2026, 6, 3, 19, 30)));
+
 		
 		return reservations;
 	}
