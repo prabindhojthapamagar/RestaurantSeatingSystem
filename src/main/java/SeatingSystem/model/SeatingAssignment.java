@@ -1,5 +1,8 @@
 package SeatingSystem.model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class SeatingAssignment {
 	
 	private Reservation reservation;
@@ -19,7 +22,15 @@ public class SeatingAssignment {
 		return table;
 	}
 	
+	public LocalDateTime getStartTime() {
+		return reservation.getArrivalTime();
+	}
+	
+	public LocalDateTime getEndTime() {
+		return reservation.getDepartureTime();
+	}
+	
 	public void print() {
-		System.out.println( reservation.getReservationId() + "-->" + table);
+		System.out.println( reservation.getReservationId() + "-->" + table + " || " + getStartTime().format(DateTimeFormatter.ofPattern("hh:mm")) + " - " + getEndTime().format(DateTimeFormatter.ofPattern("hh:mm")));
 	}
 }
