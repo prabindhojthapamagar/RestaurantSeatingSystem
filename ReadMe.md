@@ -1,11 +1,11 @@
-# Restaurant Seating System - Version 1
+# Restaurant Seating System - Version 2
 
 ## Version
 
-V1 - Basic Seat Assignment
-
+V2 - Time based Seating and Table Reuse.
 ## Project Goal
 
 Create a Java application that automatically assigns restaurant tables to reservations instead of manually assigning them through Excel.
 
-This version focuses on the core seating logic without considering reservation times, guest preferences, or table combinations.
+Extend Version 1 by introducing reservation schedules and table reuse.
+Instead of permanently occupying a table, table availability is now determined by reservation time periods.
