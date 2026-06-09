@@ -14,6 +14,7 @@ public class SeatingService {
 	public List<SeatingAssignment> assignSeats( List<Reservation> reservations, List<Table> tables) {
 		
 		List<SeatingAssignment> assignments = new ArrayList<>();
+		ScoringService scoringService = new ScoringService();
 		
 		reservations.sort(Comparator.comparing(Reservation::getArrivalTime));
 		
@@ -21,18 +22,30 @@ public class SeatingService {
 		
 		for (Reservation reservation : reservations ) {
 			
+			int bestScore = -1;
 			Table selectedTable = null;
+
+			
 			
 			for( Table table : tables) {
+				
+				int score = scoringService.calculateScore(reservation, table);
+				
 				if(tableAvailable(table, reservation, assignments)) {
 					
 					if(table.getCapacity() >= reservation.getPartySize()) {
 						
-						if(selectedTable == null || table.getCapacity() < selectedTable.getCapacity()) {
+						
+						if(selectedTable == null || score > bestScore) {
+							
 							selectedTable = table;
+							bestScore = score;
+							
 						}
 					}
 				}
+				
+		
 			}
 			
 			if (selectedTable != null) {
